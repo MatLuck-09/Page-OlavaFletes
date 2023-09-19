@@ -4,80 +4,121 @@
 
 {% block changesContent %}
 
-{% for welcome in welcomes %}
-    <!-- Projects-->
-    <section class="projects-section bg-light" id="projects">
-        <div class="container px-4 px-lg-5">
-            <!-- Featured Project Row-->
-            <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                <div class="col-xl-8 col-lg-7">
-                    <img class="img-fluid mb-3 mb-lg-0" src="{{ welcome.imagen.url }}" alt="..." />
-                </div>
-                <div class="col-xl-4 col-lg-5">
-                    <div class="featured-text text-center text-lg-left">
-                        <p class="text-black-50 mb-0">{{ welcome.contenido }}</p>
-                    </div>
-                </div>
+    <section class="hero">
+      <div class="container-large">
+        <div class="hero__img">
+          <img
+            src="{% static 'OlavaFletesApp/assets/car-1280.jpg'%}"
+            alt="camioneta de fletes"
+          />
+        </div>
+        <div class="container">
+          <h1 class="hero__title">
+            Realizamos fletes en la localidad de Olavarría
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container-large">
+          <h2 class="services__title">Servicios</h2>
+          <div class="carrousel">
+            <div
+              class="swiffy-slider slider-item-reveal slider-nav-visible slider-nav-round"
+            >
+              <ul class="slider-container">
+                <li>
+                  <img
+                    src="{% static 'OlavaFletesApp/assets/car-1280.jpg'%}"
+                    style="max-width: 100%; height: auto"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="{% static 'OlavaFletesApp/assets/car-1280.jpg'%}"
+                    style="max-width: 100%; height: auto"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="{% static 'OlavaFletesApp/assets/car-1280.jpg'%}"
+                    style="max-width: 100%; height: auto"
+                  />
+                </li>
+              </ul>
+              <button type="button" class="slider-nav"></button>
+              <button type="button" class="slider-nav slider-nav-next"></button>
+              <div class="slider-indicators">
+                <button class="active"></button>
+                <button></button>
+                <button></button>
+              </div>
             </div>
+          </div>
         </div>
     </section>
-{% endfor %}
 
-<div style="background-color: brown; text-align: center; border-color: black;">
-
-    {% if "valido" in request.GET %}
-
-        <p style="color:white"  >Informacion enviada correctamente, gracias</p>
-
-    {% endif %}
-    
-    <form action="" method="POST" style="text-align: center;">
-    
-        {% csrf_token %}
-
-        <table style="color: white; margin: 20px auto;">{{miFormulario.as_table}}</table>
-        <input type="submit" value="Enviar" style="width: 150px; margin: 0 auto; display: block;">
-
-    </form>
-
-</div>
-
-<section class="contact-section" style="background-color:brown !important;">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5">
-            <div class="col-md-4 mb-3 mb-md-0">
-                <div class="card py-4 h-100">
-                    <div class="card-body text-center">
-                        <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                        <h4 class="text-uppercase m-0">Direccion</h4>
-                        <hr class="my-4 mx-auto" />
-                        <div class="small text-black-50" style="color: black;">Juan XXIII 1802</div>
-                    </div>
-                </div>
+    <section id="about-us" class="about-us">
+      <div class="container">
+        <div class="about-us__info">
+          <h2 class="about-us__info__title">Nuestros datos</h2>
+          <div class="about-us__items">
+            <div class="about-us__item row">
+              <img
+                class="icon"
+                src="{% static 'OlavaFletesApp/assets/phone_call_icon.svg'%}"
+                alt="phone call icon"
+              />
+              <p>+54 2284-553624</p>
             </div>
-            <div class="col-md-4 mb-3 mb-md-0">
-                <div class="card py-4 h-100">
-                    <div class="card-body text-center">
-                        <i class="fas fa-envelope text-primary mb-2"></i>
-                        <h4 class="text-uppercase m-0">Email</h4>
-                        <hr class="my-4 mx-auto" />
-                        <div class="small text-black-50"><a href="mailto:pazosmatias449@gmail.com" style="color: black;">pazosmatias449@gmail.com</a></div>
-                    </div>
-                </div>
+            <div class="about-us__item row">
+              <img
+                class="icon"
+                src="{% static 'OlavaFletesApp/assets/email_icon.svg'%}"
+                alt="email icon"
+              />
+              <p>pazosmatias449@gmail.com</p>
             </div>
-            <div class="col-md-4 mb-3 mb-md-0">
-                <div class="card py-4 h-100">
-                    <div class="card-body text-center">
-                        <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                        <h4 class="text-uppercase m-0">Telefono</h4>
-                        <hr class="my-4 mx-auto" />
-                        <div class="small text-black-50"><a href="https://wa.me/542284553624" style="color: black;">+54 2284-553624</a></div>
-                        
-                    </div>
-                </div>
+            <div class="about-us__item row">
+              <img
+                class="icon"
+                src="{% static 'OlavaFletesApp/assets//location_map_marker_icon.svg'%}"
+                alt="location map marker icon"
+              />
+              <p>Juan XXIII 1802</p>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-form">
+          <h2 class="contact-form__title">Envíanos un mensaje</h2>
+          <form action="" method="POST">
+            <div class="contact-form__item">
+              <label for="name">Nombre:</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="contact-form__item">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="contact-form__item">
+              <label for="message">Mensaje:</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+            <input class="submit-btn" type="submit" value="Enviar" />
+          </form>
+        </div>
+      </div>
+    </section>
 
 {% endblock %}
